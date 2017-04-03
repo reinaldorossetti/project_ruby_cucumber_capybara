@@ -5,9 +5,9 @@ Given(/^I am on RD Station registration page "([^"]*)"\.$/) do |site|
   visit(site)
 end
 
-When(/^Fill in the information of the Account and Login "([^"]*)"\.$/) do |id|
-    if $contractor_type[$index] == "PJ"
-        $index = id.to_i
+When(/^Fill in the information of the Account and Login "([^"]*)"\.$/) do |login_type|
+    
+    $index = login_type == "Pessoa Fisica" ? 0 : 1
     expect(@Help.set_email(@register)).to eql($emails[$index])
     expect(@Help.set_pass(@register)).to eql($pass[$index])
     expect(@Help.set_company(@register)).to eql($company[$index])

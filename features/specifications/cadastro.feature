@@ -11,9 +11,9 @@ As an unregistered user
        When Fill in the information of the Account and Login "<Login_type>".
        And Fill in the information of the Contracting Authority.
        And Send the completed register.
-      Then Validate user access with message "<message>".
+      Then Validate user access with message "<Message>".
 
     Examples:
-      | Login_type   | message          |
-      | 0            | Seja bem-vindo!  |
-      | 1            | Seja bem-vindo!  |
+      | Login_type        | Message          |
+      | Pessoa Fisica     | Seja bem-vindo!  |
+      | Pessoa Juridica   | Seja bem-vindo!  |
