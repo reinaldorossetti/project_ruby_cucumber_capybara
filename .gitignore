@@ -11,3 +11,4 @@ screenshots/current_images
 cucumber.yml
 tdd/
 *.yml
+mysqlconn.rb
