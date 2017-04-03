@@ -1,4 +1,4 @@
-Meu Segundo projeto de Automação usando Ruby, Capybara, SitePrism, usando o conceito de Pages Object. Não temos nenhum Sleep fixo no projeto, tudo é feito de forma dinâmica, alguns parâmetros são passado via o comando do cucumber no cmd ou shell e os outros estão na tabela na feature, não utilizamos xpath nesse projeto somente ID e CSS Selector, como boa prática procurei deixar o projeto relativamente simples. 
+Meu Segundo projeto de Automação usando Ruby, Capybara, SitePrism, usando o conceito de Pages Object. Não temos nenhum Sleep fixo no projeto, tudo é feito de forma dinâmica. Não utilizamos xpath nesse projeto somente ID e CSS Selector, como boa prática procurei deixar o projeto relativamente simples. 
 <br>O único paramêtro que é passado via cucumber é o browser. Ainda vou automatizar essa parte.
 <br>Em pages temos duas páginas uma somente com funções e outra somente com os elementos, para ficar bem organizado.
 
@@ -61,6 +61,4 @@ Para adicionar o report adicione o comando abaixo no cucumber:
 ```shell
 --format progress --format html --out=features_report.html
 ```
-* Se passar os dados invalidos vai dar erro pois ele confere o CPF, NOME, NASCIMENTO.
-
 
