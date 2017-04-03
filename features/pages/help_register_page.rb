@@ -8,14 +8,18 @@ class HelpRegisterPage < SitePrism::Page
   
   def set_email(register)
       user_email = $emails[$index]
-      register.email.set user_email
-      return register.email.value
+      register.set user_email
+      return register.value
   end
   def set_pass(register)
       user_pass = $pass[$index]
-      register.password.set user_pass
-      register.password_confirmation.set user_pass
-      return register.password.value
+      register.set user_pass
+      return register.value
+  end
+  def set_pass_confirmation(register)
+      user_pass = $pass[$index]
+      register.set user_pass
+      return register.value
   end
   def set_company(register)
       company = $company[$index]

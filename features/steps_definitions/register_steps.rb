@@ -8,8 +8,9 @@ end
 When(/^Fill in the information of the Account and Login "([^"]*)"\.$/) do |login_type|
     
     $index = login_type == "Pessoa Fisica" ? 0 : 1
-    expect(@Help.set_email(@register)).to eql($emails[$index])
-    expect(@Help.set_pass(@register)).to eql($pass[$index])
+    expect(@Help.set_email(@register.email)).to eql($emails[$index])
+    expect(@Help.set_pass(@register.password)).to eql($pass[$index])
+    expect(@Help.set_pass_confirmation(@register.password_confirmation)).to eql($pass[$index])
     expect(@Help.set_company(@register)).to eql($company[$index])
     expect(@Help.set_site(@register)).to eql($sites[$index])
 end
@@ -40,5 +41,5 @@ When(/^Send the completed register\.$/) do
 end
 
 Then(/^Validate user access with message "([^"]*)"\.$/) do |message|
-  expect(@register.menu_welcome.text.downcase).to  eql(message.downcase)
+  expect(@register.main_menu_user.text.downcase).to  eql(message.downcase)
 end
