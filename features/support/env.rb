@@ -40,6 +40,17 @@ Capybara.register_driver :selenium do |app|
   end
 end
 
+module WaitForAjax
+  def wait_for_ajax
+    Timeout.timeout(Capybara.default_max_wait_time) do
+      loop until finished_all_ajax_requests?
+    end
+  end
+
+  def finished_all_ajax_requests?
+    page.evaluate_script('jQuery.active').zero?
+  end
+end
 
 RSpec.configure do |config|
   # show retry status in spec process
@@ -49,4 +60,6 @@ RSpec.configure do |config|
   # Only retry when Selenium raises Net::ReadTimeout
   config.exceptions_to_retry = [Net::ReadTimeout]
   Capybara.javascript_driver = :webkit
+  # wait for ajax.
+  config.include WaitForAjax, type: :feature
 end
